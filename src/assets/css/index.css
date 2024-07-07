@@ -1,0 +1,250 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+}
+
+.card {
+  padding: 2em;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+a {
+  font-weight: 500;
+  color: #ceced1;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #d3d3d3;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border: 1px solid transparent;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  padding:5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: #555555;
+  margin-left: 1px;
+  margin-right: 1px;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: #b8b8b8a9;
+}
+
+button select {
+  border-color: #d46d19;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 0.5px solid #c7c7c7;
+}
+
+input:focus,
+input:focus-visible {
+  outline: 0.2px solid #c7c7c7;
+}
+input {
+  width: 210px;
+  border: 0.3px solid transparent;
+  padding: 0.3em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #555555;
+  cursor: pointer;
+  transition: border-color 0.25s;
+
+}
+
+select {
+  width: 250px;
+  border: 1px solid transparent;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #476569;
+  color: white; /* Ensures the text color is visible against the background */
+  padding: 0.3em 1.2em; /* Adds padding for a better appearance */
+  cursor: pointer;
+  transition: border-color 0.25s, background-color 0.25s;
+  -webkit-appearance: none; /* Removes default styling in Safari */
+  -moz-appearance: none; /* Removes default styling in Firefox */
+  appearance: none; /* Removes default styling in other browsers */
+}
+
+select:hover, select:focus {
+  border-color: #476569; /* Changes the border color on hover or focus */
+  background-color: #476569; /* Slightly changes the background color on hover or focus */
+}
+label{
+  margin-right: 10px;
+  margin-left: 10px;
+}
+select::-ms-expand {
+  display: none; /* Hides the dropdown arrow in IE */
+}
+
+/* Optionally, you can add custom styles for the dropdown arrow */
+.select-container {
+  position: relative;
+  display: inline-block;
+}
+
+.select-container::after {
+  content: '▼'; /* Unicode character for the dropdown arrow */
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none; /* Ensures the arrow does not block clicks */
+  color: white; /* Ensures the arrow color matches the text color */
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+
+  a:hover {
+    color: #747bff;
+  }
+
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+
+.topbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #3e3f3f;
+  width: 100%;
+  height: 50px;
+}
+
+.cy-bt {
+  padding:5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: #212222;
+  margin-left: 0.5px;
+  margin-right: 0.5px;
+
+}
+
+.cy-bt:hover {
+  background-color: #323333;
+  cursor: pointer;
+}
+
+.f {
+  display: flex;
+}
+
+.jus-center {
+  justify-content: center;
+}
+
+.jus-between {
+  justify-content: space-between;
+}
+
+.cy-box{
+  width: 80vw;
+  background-color: #202020;
+  min-height:350px ;
+}
+
+.container{
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+.it{
+  margin: 5px;
+}
+
+.it-row {
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping to the next line if needed */
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.it-col {
+  flex: 1; /* Makes each column take equal width */
+  padding-right: 15px;
+  padding-left: 15px;
+  box-sizing: border-box; /* Ensures padding doesn't affect total width */
+}
+
+/* Additional column sizes for more control */
+.it-col-1 { flex: 0 0 8.33%; max-width: 8.33%; }
+.it-col-2 { flex: 0 0 16.66%; max-width: 16.66%; }
+.it-col-3 { flex: 0 0 25%; max-width: 25%; }
+.it-col-4 { flex: 0 0 33.33%; max-width: 33.33%; }
+.it-col-5 { flex: 0 0 41.66%; max-width: 41.66%; }
+.it-col-6 { flex: 0 0 50%; max-width: 50%; }
+.it-col-7 { flex: 0 0 58.33%; max-width: 58.33%; }
+.it-col-8 { flex: 0 0 66.66%; max-width: 66.66%; }
+.it-col-9 { flex: 0 0 75%; max-width: 75%; }
+.it-col-10 { flex: 0 0 83.33%; max-width: 83.33%; }
+.it-col-11 { flex: 0 0 91.66%; max-width: 91.66%; }
+.it-col-12 { flex: 0 0 100%; max-width: 100%; }
+
+.txt-r{
+  display: flex;
+  justify-content: right;
+}
+
+.txt-c{
+  display: flex;
+  justify-content: center;
+}
+
+hr{
+  border: 0.5px solid #c7c7c718;
+}
