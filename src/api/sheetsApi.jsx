@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 //const API_URL = 'https://script.google.com/macros/s/AKfycbyhf_Hn0-pqViRcAfAFjYGqRo2KDYZoIFgJ0yBDf3qXIzYdssy-Ulb9crptDPmeF2K4/exec';
-const API_URL = 'https://script.google.com/macros/s/AKfycbwwxPrfw0BHGLLyK_H0IKVNSi7ACmOJVJQeKn5fjNfefeAuA3EpaJngcWJ72QIRaUAL/exec'
-''
+const API_URL = 'http://127.0.0.1:5000/read'
+
 const instance = axios.create({
   baseURL: API_URL,
   headers: {
@@ -15,8 +15,8 @@ export const getData = async () => {
   try {
     console.log("*********** getData **********")
     console.log(API_URL)
-    console.log({ action: 'read' })
-    const response = await instance.post('', { action: 'read' });
+    // const response = await instance.post('', { action: 'read' });
+    const response = await axios.get(API_URL);
     console.log("response",response)
     
     console.log(response)

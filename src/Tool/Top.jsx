@@ -18,7 +18,9 @@ const Top = () => {
                     </div>
                 </div>
                 <div className='item'>
-                    Login
+                <div className="cy-bt-save">
+                Save
+                </div>
                 </div>
             </div>
 
