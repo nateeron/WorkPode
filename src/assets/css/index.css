@@ -94,7 +94,25 @@ input {
     transition: border-color 0.25s;
     color: #d3d3d3;
 }
+textarea{
 
+    min-width: 210px;
+    min-height: 50px;
+    width: 210px;
+    border: 0.3px solid transparent;
+    padding: 0.3em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #555555;
+    cursor: pointer;
+    transition: border-color 0.25s;
+    color: #d3d3d3;
+}
+textarea:focus,
+textarea:focus-visible {
+    outline: 0.2px solid #c7c7c7;
+}
 select {
     width: 210px;
     border: 1px solid transparent;
@@ -185,7 +203,21 @@ select::-ms-expand {
   border-radius: 2px;
   
 }
-
+.cy-bt-upload{
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: #a8aaaa;
+    color: #063a3d;
+    margin-left: 0.5px;
+    margin-right: 0.5px;
+    border-radius: 2px;
+}
+.cy-bt-upload:hover{
+    background-color: #7c8383;
+    cursor: pointer;
+    border: 1px solid #c9c9c9;
+}
 .cy-bt-save:hover {
     background-color: #3b5555;
     cursor: pointer;
@@ -309,4 +341,23 @@ hr {
 
 .MuiInputAdornment-root button {
     color: #ffffff86;
+}
+
+
+.none{display: none;}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+}
+.al-center {
+    align-items: center;
+}
+
+.btw {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
 }

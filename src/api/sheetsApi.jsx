@@ -1,7 +1,9 @@
 import axios from 'axios';
 
 //const API_URL = 'https://script.google.com/macros/s/AKfycbyhf_Hn0-pqViRcAfAFjYGqRo2KDYZoIFgJ0yBDf3qXIzYdssy-Ulb9crptDPmeF2K4/exec';
-const API_URL = 'http://127.0.0.1:5000/read'
+const API_URLs = 'http://127.0.0.1:5000/read'
+const API_URL = 'https://sendmailpode-04f4c6126331.herokuapp.com/'
+
 
 const instance = axios.create({
   baseURL: API_URL,
@@ -13,14 +15,13 @@ const instance = axios.create({
 
 export const getData = async () => {
   try {
-    console.log("*********** getData **********")
-    console.log(API_URL)
+    const URL = API_URL+'read'
     // const response = await instance.post('', { action: 'read' });
-    const response = await axios.get(API_URL);
-    console.log("response",response)
-    
-    console.log(response)
-    return response.data;
+    const response = await axios.get(URL);
+    if (response)
+      return response.data;
+    return [];
+
   } catch (error) {
     console.error('Error fetching data:', error);
     throw error;
@@ -63,6 +64,27 @@ export const searchData = async (query) => {
     return response.data;
   } catch (error) {
     console.error('Error searching data:', error);
+    throw error;
+  }
+};
+
+
+// ------------------ Get Menu -----------------------
+
+export const getmenu = async (i) => {
+  try {
+    const URL = API_URL+'menu/read'
+    // const response = await instance.post('', { action: 'read' });
+    const response = await axios.post(URL,{ i: i },{
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    return response.data;
+ 
+
+  } catch (error) {
+    console.error('Error fetching data:', error);
     throw error;
   }
 };
