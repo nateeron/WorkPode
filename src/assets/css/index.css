@@ -204,6 +204,8 @@ select::-ms-expand {
   
 }
 .cy-bt-upload{
+    min-width: 150px; 
+    width: 150px;
     padding: 5px;
     padding-left: 15px;
     padding-right: 15px;

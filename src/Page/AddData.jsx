@@ -160,10 +160,10 @@ const AddData = () => {
                 </div>
                 <div className="it">
                     <div className="it-row">
-                        <div className="it-col-3 txt-r">
+                        <div className="it-col-4 txt-r">
                             <label>รูปภาพ Ardwork</label>
                         </div>
-                        <div className="it-col-2">
+                        <div className="it-col-5">
                             <div className="cy-bt-upload" id="openDialogBtn" onClick={openDialogBtn}>
                                 {" "}
                                 Upload
@@ -217,20 +217,20 @@ const AddData = () => {
 
                 <div className="it">
                     <div className="it-row">
-                        <div className="it-col-3 txt-r">
+                        <div className="it-col-4 txt-r">
                             <label>เรื่อง</label>
                         </div>
-                        <div className="it-col-3">
+                        <div className="it-col-5">
                             <input type="text" />
                         </div>
                     </div>
                 </div>
                 <div className="it">
                     <div className="it-row">
-                        <div className="it-col-3 txt-r">
+                        <div className="it-col-4 txt-r">
                             <label>วันที่รับงาน</label>
                         </div>
-                        <div className="it-col-3 datePicker-lite">
+                        <div className="it-col-5 datePicker-lite">
                             <div className="cayo-datepicker">
                                 <Flatpickr key={"date2"}
                                     className="cayo-datepicker-input"
@@ -254,20 +254,20 @@ const AddData = () => {
                 </div>
                 <div className="it">
                     <div className="it-row">
-                        <div className="it-col-3 txt-r">
+                        <div className="it-col-4 txt-r">
                             <label>ผู้แจ้งงาน</label>
                         </div>
-                        <div className="it-col-3">
+                        <div className="it-col-5">
                             <input type="text" />
                         </div>
                     </div>
                 </div>
                 <div className="it">
                     <div className="it-row">
-                        <div className="it-col-3 txt-r">
+                        <div className="it-col-4 txt-r">
                             <label>หน่วยงานผู้จ้าง</label>
                         </div>
-                        <div className="it-col-3">
+                        <div className="it-col-5">
                             <div className="select-container">
                                 <select>
                                     {menu2 &&
@@ -280,10 +280,10 @@ const AddData = () => {
                 </div>
                 <div className="it">
                     <div className="it-row">
-                        <div className="it-col-3 txt-r">
+                        <div className="it-col-4 txt-r">
                             <label>บริษัท</label>
                         </div>
-                        <div className="it-col-3">
+                        <div className="it-col-5">
                             <div className="select-container">
                                 <select>
                                     {menu3 &&
@@ -297,31 +297,31 @@ const AddData = () => {
 
                 <div className="it">
                     <div className="it-row">
-                        <div className="it-col-3 txt-r">
+                        <div className="it-col-4 txt-r">
                             <label>จำนวน</label>
                         </div>
-                        <div className="it-col-3">
+                        <div className="it-col-5">
                             <input type="text" />
                         </div>
                     </div>
                 </div>
                 <div className="it">
                     <div className="it-row">
-                        <div className="it-col-3 txt-r">
+                        <div className="it-col-4 txt-r">
                             <label>ราคาชิ้นงาน</label>
                         </div>
-                        <div className="it-col-3">
+                        <div className="it-col-5">
                             <input type="text" />
                         </div>
                     </div>
                 </div>
                 <div className="it">
                     <div className="it-row">
-                        <div className="it-col-3 txt-r">
+                        <div className="it-col-4 txt-r">
                             {" "}
                             <label>หมวดงาน</label>
                         </div>
-                        <div className="it-col-3">
+                        <div className="it-col-5">
                             <div className="select-container">
                                 <select>
                                     {menu4 &&
@@ -334,10 +334,10 @@ const AddData = () => {
                 </div>
                 <div className="it">
                     <div className="it-row">
-                        <div className="it-col-3 txt-r">
+                        <div className="it-col-4 txt-r">
                             <label>วันส่งงาน</label>
                         </div>
-                        <div className="it-col-3">
+                        <div className="it-col-5">
                             <Flatpickr
                                 key={"date1"}
                                 className="cayo-datepicker-input"
@@ -360,10 +360,10 @@ const AddData = () => {
                 </div>
                 <div className="it">
                     <div className="it-row">
-                        <div className="it-col-3 txt-r">
+                        <div className="it-col-4 txt-r">
                             <label>หมายเหตุ</label>
                         </div>
-                        <div className="it-col-3">
+                        <div className="it-col-5">
                             <textarea type="text" />
                         </div>
                     </div>
