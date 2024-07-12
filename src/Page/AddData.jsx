@@ -4,9 +4,12 @@ import Flatpickr from "react-flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
 import { getmenu } from "../api/sheetsApi";
 import "../assets/css/dilog_image.css";
+import FetchStoreObject from "../redux/Main_FetchStore";
+import Random from "../Tool/fn";
+import { useSelector, useDispatch } from "react-redux";
 
 const AddData = () => {
-
+    const dispatch = useDispatch();
     const [date, setDate] = useState(new Date());
     const [show_bt_save, set_show_bt_save] = useState(false);
     const [menu1, setmenu1] = useState();
@@ -14,27 +17,41 @@ const AddData = () => {
     const [menu3, setmenu3] = useState();
     const [menu4, setmenu4] = useState();
 
-    const fetchData = async () => {
-        const result1 = await getmenu(1);
-        setmenu1(result1.values);
-        console.log(result1.values);
-
-        const result2 = await getmenu(2);
-
-        setmenu2(result2.values);
-        const result3 = await getmenu(3);
-
-        setmenu3(result3.values);
-        const result4 = await getmenu(4);
-
-        setmenu4(result4.values);
-    };
+    const oj_menu = useSelector((s) => s);
+  
 
     useEffect(() => {
+        const fetchData = async () => {
+            // Promise.all ทำการโหดพร้อมกัน ในเวลาเดียวกัน งานไหนเสร็จก่อนก็จอรอ function อื่นจนเสร็จทั้งหมด 
+            const [result2, result3, result4] = await Promise.all([
+                FetchStoreObject(dispatch, "menu_read", oj_menu.oj_menu2, 2),
+                FetchStoreObject(dispatch, "menu_read", oj_menu.oj_menu3, 3),
+                FetchStoreObject(dispatch, "menu_read", oj_menu.oj_menu4, 4),
+            ]);
+
+            setmenu2(result2);
+            setmenu3(result3);
+            setmenu4(result4);
+        };
+
         fetchData();
 
         console.log(menu1);
     }, []);
+    // useSelector ต้องเรียกใช้บันทัดเดียว ใน Function
+    const LoadSto = useSelector((state) => state.oj_data);
+    // useEffect จะทำเมื่อ มีการ Load หน้า
+    useEffect(() => {
+        try {
+            // FetchStoreObject จะส่ง dispatch ชื่อ Object และข้อมูลที่มีอยู่ใน Store ถ้า มีข้อมูลอยู่แล้วจะไม่ เรียก API ซ้ำ
+            // กรณี มี Update ข้อมูลจะ ใช้ อีก function Reset_FetchStoreObject
+            const data = FetchStoreObject(dispatch, "read", LoadSto);
+            console.log(data);
+        } catch (error) {
+            console.log(error + "\nsrc\\Page\\AddData.jsx");
+        }
+    }, []);
+
 
     const imageDialog = document.getElementById("imageDialog");
     const imageDialogRef = useRef(null);
@@ -42,9 +59,11 @@ const AddData = () => {
     const [droppedImageFile, setDroppedImageFile] = useState(null);
 
     const openDialogBtn = () => {
-        if (imageDialogRef.current) {
-            imageDialogRef.current.showModal();
-        }
+
+        document.getElementById("imageInput").click()
+        // if (imageDialogRef.current) {
+        //     imageDialogRef.current.showModal();
+        // }
     };
 
     const handlePaste_image = (event) => {
@@ -74,8 +93,7 @@ const AddData = () => {
         const files = event.target.files;
         handleFiles(files);
     };
-   
- 
+
     // Function to prevent default drag behaviors
     const preventDefaults = (e) => {
         e.preventDefault();
@@ -151,13 +169,39 @@ const AddData = () => {
             alert("Please drop an image first.");
         }
     };
-    
+    const info_Save = ()=>{
+
+        console.log("info_Save")
+    }
     return (
         <>
             <div className="cy-box">
                 <div className="it txt-c">
                     <p className="read-the-docs it">Add Data</p>
                 </div>
+                <div className="btw" style={{}}>
+                            <div
+                                className="btw "
+                                style={{width:"20%",minWidth:"150px"}}
+                                id="addimage"
+                                ref={addImageRef}
+                                onPaste={handlePaste_image}
+                                onDragEnter={handleDragEnterOver}
+                                onDragLeave={handleDragLeaveDrop}
+                                onDragOver={preventDefaults}
+                                onDrop={handleDrop}
+                                tabIndex="0"
+                            >
+                                Drop an image here
+                            </div>
+                            <input
+                                type="file"
+                                id="imageInput"
+                                accept="image/*"
+                                onChange={handleFileSelect}
+                                className="none"
+                            />
+                        </div>
                 <div className="it">
                     <div className="it-row">
                         <div className="it-col-4 txt-r">
@@ -174,23 +218,7 @@ const AddData = () => {
 
                 <dialog ref={imageDialogRef} id="imageDialog">
                     <div className="content">
-                        <div className="">
-                            <div
-                                className="btw dialog-paste-Image"
-                                id="addimage"
-                                ref={addImageRef}
-                                onPaste={handlePaste_image}
-                                onDragEnter={handleDragEnterOver}
-                                onDragLeave={handleDragLeaveDrop}
-                                onDragOver={preventDefaults}
-                                onDrop={handleDrop}
-                                tabIndex="0"
-                               
-                            >
-                                Drop an image here
-                            </div>
-                            <input type="file" id="imageInput" accept="image/*"  onChange={handleFileSelect} className="none" />
-                        </div>
+                      
                         <div className="flex-center al-center">
                             <div className="flex">
                                 <button className="dl-button" id="Save" onClick={handleSaveImage}>
@@ -232,7 +260,8 @@ const AddData = () => {
                         </div>
                         <div className="it-col-5 datePicker-lite">
                             <div className="cayo-datepicker">
-                                <Flatpickr key={"date2"}
+                                <Flatpickr
+                                    key={"date2"}
                                     className="cayo-datepicker-input"
                                     value={date}
                                     onChange={(selectedDates) => {
@@ -272,7 +301,11 @@ const AddData = () => {
                                 <select>
                                     {menu2 &&
                                         menu2 != "undefined" &&
-                                        menu2.map((row) => <option value={row[1]}>{row[0]}</option>)}
+                                        menu2.map((row) => (
+                                            <option key={Random()} value={row[1]}>
+                                                {row[0]}
+                                            </option>
+                                        ))}
                                 </select>
                             </div>
                         </div>
@@ -288,7 +321,11 @@ const AddData = () => {
                                 <select>
                                     {menu3 &&
                                         menu3 != "undefined" &&
-                                        menu3.map((row) => <option value={row[1]}>{row[0]}</option>)}
+                                        menu3.map((row) => (
+                                            <option key={Random()} value={row[1]}>
+                                                {row[0]}
+                                            </option>
+                                        ))}
                                 </select>
                             </div>
                         </div>
@@ -326,7 +363,11 @@ const AddData = () => {
                                 <select>
                                     {menu4 &&
                                         menu4 != "undefined" &&
-                                        menu4.map((row) => <option value={row[1]}>{row[0]}</option>)}
+                                        menu4.map((row) => (
+                                            <option key={Random()} value={row[1]}>
+                                                {row[0]}
+                                            </option>
+                                        ))}
                                 </select>
                             </div>
                         </div>

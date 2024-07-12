@@ -5,7 +5,6 @@ import AddData from "../Page/AddData";
 import Dashboard from "../Page/Dashboard";
 
 function App() {
-    const [count, setCount] = useState(0);
 
     return (
         <>

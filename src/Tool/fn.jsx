@@ -11,4 +11,4 @@ const Random = () => {
       return result;
     };
 
-    export default Random;
+export default Random;
