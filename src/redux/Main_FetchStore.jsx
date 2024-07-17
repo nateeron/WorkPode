@@ -108,6 +108,47 @@ const PostData = async (URL, req) => {
     }
 };
 
+export const SendPost_image = async (URL, req) => {
+    try {
+        console.log(URL, req)
+        for (let [key, value] of req.entries()) {
+            console.log(`${key}:`, value);
+        }
+       
+        const response = await axios.post(URL, req, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
+        if (response) {
+            return response;
+        }else{
+            return [];
+        }
+    } catch (error) {
+        console.error("Error fetching data:", error);
+        throw error;
+    }
+};
+
+export const SendPost = async (URL, req) => {
+    try {
+        const response = await axios.post(URL, req, {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+        if (response) {
+            return response;
+        }else{
+            return [];
+        }
+    } catch (error) {
+        console.error("Error fetching data:", error);
+        throw error;
+    }
+};
+
 export const getmenuasdasd = async (i) => {
     try {
         const URL = API_URLS.API_MENU_READ;

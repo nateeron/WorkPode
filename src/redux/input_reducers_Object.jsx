@@ -123,3 +123,15 @@ export const fetch_Menu1 = (state2 = initialState, action) => {
           return state2;
   }
 };
+
+export const formReducer = (state = initialState, action) => {
+    switch (action.type) {
+      case "ADD_FORM_DATA":
+        return {
+          ...state,
+          formData: action.payload,
+        };
+      default:
+        return state;
+    }
+  };

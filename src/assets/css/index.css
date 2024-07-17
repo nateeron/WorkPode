@@ -12,7 +12,17 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-
+.flatpickr-current-month input.cur-year {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: large;
+   
+}
+.flatpickr-current-month .flatpickr-monthDropdown-months {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: large;
+}
 .card {
     padding: 2em;
 }
@@ -64,7 +74,9 @@ button {
     transition: border-color 0.25s;
     color: #d3d3d3;
 }
-
+.hid{
+    display: none;
+}
 button:hover {
     border-color: #b8b8b8a9;
 }
@@ -353,6 +365,11 @@ hr {
     justify-content: center;
     padding: 5px;
 }
+
+.flex {
+    display: flex;
+ 
+}
 .al-center {
     align-items: center;
 }
@@ -362,4 +379,8 @@ hr {
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+}
+
+.bg-color{
+    background-color: #258d8d18;
 }

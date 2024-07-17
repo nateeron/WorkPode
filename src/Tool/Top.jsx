@@ -8,20 +8,16 @@ const Top = () => {
         <>
             <div className='topbar'>
                 <div className='f'>
-                    <div className='cy-bt'>
-                        <Link to="/">Add Data</Link>
+                    <div >
+                        <Link to="/" className='cy-bt'>Add Data</Link>
                     
                     </div>
-                    <div className='cy-bt'>
+                    <div>
                     
-                    <Link to="/dashboard">Dashboard</Link>
+                    <Link to="/dashboard" className='cy-bt'>Dashboard</Link>
                     </div>
                 </div>
-                <div className='item'>
-                <div className="cy-bt-save">
-                Save
-                </div>
-                </div>
+           
             </div>
 
         </>

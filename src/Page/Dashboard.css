@@ -1,0 +1,28 @@
+.item-list{
+        height: 100px;
+        padding:5px ;
+        margin: 5px;
+  
+}
+
+.img {
+    
+      min-height: 100px;
+      height: 100px;
+      max-width:  100px;
+      width:  100px;
+}
+.flex-bt{
+      display: flex;
+      justify-content: space-between;
+      height: 100px;
+}
+
+.w-100{
+      width: 100%;
+      height: 100%;
+}
+
+.over{
+      overflow: scroll;
+}
