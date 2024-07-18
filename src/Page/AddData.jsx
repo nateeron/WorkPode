@@ -32,6 +32,7 @@ const AddData = () => {
         Price: "",
         Category: "",
         WorkSubmissionDate: "",
+        JobCode: "",
         Note: "",
     };
     const [oj_infoSave, setoj_infoSave] = useState(ojs);
@@ -215,6 +216,7 @@ const AddData = () => {
     const [Price_, setPrice_] = useState();
     const [Category_, setCategory_] = useState();
     const [Note_, setNote_] = useState();
+    const [JobCode_, setJobCode_] = useState();
 
     const subject_Change = (e) => {
         oj_infoSave.subject = e.target.value;
@@ -260,6 +262,12 @@ const AddData = () => {
         oj_infoSave.Note = e.target.value;
         setoj_infoSave(oj_infoSave);
         setNote_(e.target.value);
+        console.log(oj_infoSave);
+    };
+    const JobCode_Change = (e) => {
+        oj_infoSave.JobCode = e.target.value;
+        setoj_infoSave(oj_infoSave);
+        setJobCode_(e.target.value);
         console.log(oj_infoSave);
     };
 
@@ -318,11 +326,20 @@ const AddData = () => {
                         <div className="cy-bt-save" onClick={save}>
                             Save
                         </div>
+                     
+                        <a
+                            href="https://docs.google.com/spreadsheets/d/1pNgXiMG54vmF84jBBhtccclQGZwItYU2LeuP4oMNCWE/edit?gid=0#gid=0"
+                            target="_blank"
+                            className="cy-bt-save"
+                        >
+                            Open EXCEL
+                        </a>
+
                         <div className="cy-bt-save hid" onClick={view_Object}>
-                        view_Object
+                            view_Object
                         </div>
                         <div className="cy-bt-save hid" onClick={CrearOJ}>
-                        CrearOJ
+                            CrearOJ
                         </div>
                     </div>
                     <div className="it txt-c">
@@ -353,7 +370,7 @@ const AddData = () => {
                     <div className="it">
                         <div className="it-row">
                             <div className="it-col-4 txt-r">
-                                <label>รูปภาพ Ardwork</label>
+                                <label>Artwork</label>
                             </div>
                             <div className="it-col-5">
                                 <div className="cy-bt-upload" id="openDialogBtn" onClick={openDialogBtn}>
@@ -431,7 +448,7 @@ const AddData = () => {
                     <div className="it">
                         <div className="it-row">
                             <div className="it-col-4 txt-r">
-                                <label>ผู้แจ้งงาน</label>
+                                <label>Owner</label>
                             </div>
                             <div className="it-col-5">
                                 <input type="text" value={JobInformer_} onChange={JobInformer_Change} />
@@ -441,20 +458,10 @@ const AddData = () => {
                     <div className="it">
                         <div className="it-row">
                             <div className="it-col-4 txt-r">
-                                <label>หน่วยงานผู้จ้าง</label>
+                                <label>หน่วยงานผู้แจ้ง</label>
                             </div>
                             <div className="it-col-5">
-                                <div className="select-container">
-                                    <select value={EmployingAgency_} onChange={EmployingAgency_Change}>
-                                        {menu2 &&
-                                            menu2 != "undefined" &&
-                                            menu2.map((row) => (
-                                                <option key={Random()} defaultValue={row[0]} value={row[0]}>
-                                                    {row[0]}
-                                                </option>
-                                            ))}
-                                    </select>
-                                </div>
+                                <input type="text" value={EmployingAgency_} onChange={EmployingAgency_Change} />
                             </div>
                         </div>
                     </div>
@@ -492,7 +499,7 @@ const AddData = () => {
                     <div className="it">
                         <div className="it-row">
                             <div className="it-col-4 txt-r">
-                                <label>ราคาชิ้นงาน</label>
+                                <label>ราคา</label>
                             </div>
                             <div className="it-col-5">
                                 <input type="text" value={Price_} onChange={Price_Change} />
@@ -523,7 +530,7 @@ const AddData = () => {
                     <div className="it">
                         <div className="it-row">
                             <div className="it-col-4 txt-r">
-                                <label>วันส่งงาน</label>
+                                <label>วันที่ส่งงาน</label>
                             </div>
                             <div className="it-col-5">
                                 <Flatpickr
@@ -543,6 +550,16 @@ const AddData = () => {
                                     }}
                                     placeholder="Select Date" // Set the placeholder text
                                 />
+                            </div>
+                        </div>
+                    </div>
+                    <div className="it">
+                        <div className="it-row">
+                            <div className="it-col-4 txt-r">
+                                <label>JobCode</label>
+                            </div>
+                            <div className="it-col-5">
+                                <input type="text" value={JobCode_} onChange={JobCode_Change} />
                             </div>
                         </div>
                     </div>

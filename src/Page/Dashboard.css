@@ -2,7 +2,7 @@
         height: 100px;
         padding:5px ;
         margin: 5px;
-  
+      font-size: small;
 }
 
 .img {
@@ -25,4 +25,7 @@
 
 .over{
       overflow: scroll;
+}
+.Search-input{
+    width:500px !important
 }
