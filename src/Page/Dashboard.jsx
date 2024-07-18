@@ -139,6 +139,12 @@ const Dashboard = () => {
         dialogContent.style.transform = "";
     }
 
+    const handleTouchMove = (e) => {
+        console.log('Touch moved', e);
+        // Logic to handle touch move events
+        startDrag(e)
+    };
+    
     const startDrag = (event) => {
         MountoffsetX = event.clientX;
         MountoffsetY = event.clientY;
@@ -295,7 +301,7 @@ const Dashboard = () => {
                         width: "100%",
                     }}
                 >
-                    <img className="dialog-image" id="dialog-image" src="" alt="Zoomed Image" sx={{ height: "100%" }} />
+                    <img className="dialog-image" id="dialog-image" onTouchMove={handleTouchMove} src="" alt="Zoomed Image" sx={{ height: "100%" }} />
                 </Box>
                 <Box className="percen" id="zoom-show">
                     <span id="zoom-sizeimage">100%</span>
